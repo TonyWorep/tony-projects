@@ -1,8 +1,10 @@
+import Navbar from "@/components/navbar/Navbar";
+import { ThemeProvider } from "@/components/theme/ThemeProvider";
 import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "tonys projects",
+  title: "tony/projects",
   description: "yo",
 };
 
@@ -13,7 +15,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`dark flex flex-col`}>{children}</body>
+      <body className={`flex flex-col`}>
+        <ThemeProvider attribute={"class"} defaultTheme="system" enableSystem>
+          <Navbar />
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
   );
 }
