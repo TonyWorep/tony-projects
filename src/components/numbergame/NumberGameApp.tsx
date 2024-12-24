@@ -7,10 +7,10 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "../ui/Accordion";
-import ComputerCard from "./NumberGameComputer";
+import NumberGameComputerCard from "./NumberGameComputer";
 import NumberGameResult from "./NumberGameResult";
 import { NumberGameStateContext } from "./NumberGameState";
-import YouCard from "./NumberGameYou";
+import NumberGameYouCard from "./NumberGameYou";
 
 export default function NumberGame() {
   const state = React.useContext(NumberGameStateContext);
@@ -22,12 +22,12 @@ export default function NumberGame() {
         <p className="opacity-75">First to reach 100 wins.</p>
       </div>
       <div className="flex gap-20">
-        <YouCard />
+        <NumberGameYouCard />
         <div className="flex flex-col items-center">
           <h1 className="font-bold text-2xl">Sum</h1>
           <p className="font-semi text-xl">{state.sum}</p>
         </div>
-        <ComputerCard />
+        <NumberGameComputerCard />
       </div>
       {(state.sum === 100 && state.computer === 0) || state.sum === 100 ? (
         <NumberGameResult />

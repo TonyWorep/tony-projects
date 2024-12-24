@@ -14,7 +14,7 @@ import {
   NumberGameStateContext,
 } from "./NumberGameState";
 
-export default function YouCard() {
+export default function NumberGameYouCard() {
   const state = React.useContext(NumberGameStateContext);
   const dispatch = React.useContext(NumberGameDispatchContext);
 

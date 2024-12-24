@@ -8,7 +8,7 @@ import {
 import React from "react";
 import { NumberGameStateContext } from "./NumberGameState";
 
-export default function ComputerCard() {
+export default function NumberGameComputerCard() {
   const state = React.useContext(NumberGameStateContext);
 
   return (
