@@ -1,6 +1,10 @@
 const keyNumbers = [12, 23, 34, 45, 56, 67, 78, 89, 100];
 
-export function computerMove(you: number, sum: number, randomNumber: number) {
+export function numberGameComputerMove(
+  you: number,
+  sum: number,
+  randomNumber: number
+) {
   const currentSum = you + sum;
   let currentKey = 0;
 

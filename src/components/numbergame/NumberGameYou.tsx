@@ -7,7 +7,7 @@ import {
   CardTitle,
 } from "@/components/ui/Card";
 import { Input } from "@/components/ui/Input";
-import { computerMove } from "@/lib/numbergame/NumberGame";
+import { numberGameComputerMove } from "@/lib/numbergame/NumberGame";
 import React from "react";
 import {
   NumberGameDispatchContext,
@@ -44,14 +44,18 @@ export default function NumberGameYouCard() {
               dispatch({ type: "setYou", value: 1 });
               dispatch({
                 type: "setComputer",
-                value: computerMove(state.you, state.sum, randomNumber),
+                value: numberGameComputerMove(
+                  state.you,
+                  state.sum,
+                  randomNumber
+                ),
               });
               dispatch({
                 type: "setSum",
                 value:
                   state.sum +
                   state.you +
-                  computerMove(state.you, state.sum, randomNumber),
+                  numberGameComputerMove(state.you, state.sum, randomNumber),
               });
             }}
           >
