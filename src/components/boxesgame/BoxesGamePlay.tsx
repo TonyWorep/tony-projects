@@ -100,6 +100,7 @@ export default function BoxesGamePlay() {
                   ),
               }));
         }}
+        disabled={state.boxes.length === 0 ? true : false}
         className="mt-auto mx-auto w-40"
       >
         Submit

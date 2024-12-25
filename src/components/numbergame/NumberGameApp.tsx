@@ -29,11 +29,7 @@ export default function NumberGame() {
         </div>
         <NumberGameComputerCard />
       </div>
-      {(state.sum === 100 && state.computer === 0) || state.sum === 100 ? (
-        <NumberGameResult />
-      ) : (
-        false
-      )}
+      {state.sum === 100 ? <NumberGameResult /> : false}
       <div className="flex flex-col mt-auto mb-auto w-full">
         <Accordion type="single" collapsible className="w-[600px] mx-auto">
           <AccordionItem value="1">

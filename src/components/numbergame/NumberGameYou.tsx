@@ -58,6 +58,7 @@ export default function NumberGameYouCard() {
                   numberGameComputerMove(state.you, state.sum, randomNumber),
               });
             }}
+            disabled={state.sum === 100 ? true : false}
           >
             Submit
           </Button>
