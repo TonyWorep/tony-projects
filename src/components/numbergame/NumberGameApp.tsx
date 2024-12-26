@@ -8,6 +8,7 @@ import {
   AccordionTrigger,
 } from "../ui/Accordion";
 import NumberGameComputerCard from "./NumberGameComputer";
+import NumberGameDifficulty from "./NumberGameDifficulty";
 import NumberGameResult from "./NumberGameResult";
 import { NumberGameStateContext } from "./NumberGameState";
 import NumberGameYouCard from "./NumberGameYou";
@@ -21,13 +22,16 @@ export default function NumberGame() {
         <h1 className="font-bold text-4xl">Number Game</h1>
         <p className="opacity-75">First to reach 100 wins.</p>
       </div>
-      <div className="flex gap-20">
-        <NumberGameYouCard />
-        <div className="flex flex-col items-center">
-          <h1 className="font-bold text-2xl">Sum</h1>
-          <p className="font-semi text-xl">{state.sum}</p>
+      <div className="flex flex-col gap-2">
+        <NumberGameDifficulty />
+        <div className="flex gap-20">
+          <NumberGameYouCard />
+          <div className="flex flex-col items-center">
+            <h1 className="font-bold text-2xl">Sum</h1>
+            <p className="font-semi text-xl">{state.sum}</p>
+          </div>
+          <NumberGameComputerCard />
         </div>
-        <NumberGameComputerCard />
       </div>
       {state.sum === 100 ? <NumberGameResult /> : false}
       <div className="flex flex-col mt-auto mb-auto w-full">

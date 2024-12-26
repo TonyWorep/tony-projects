@@ -7,18 +7,22 @@ interface NumberGameState {
   computer: number;
   sum: number;
   youVisual: number;
+  difficulty: string;
 }
 
-type NumberGameAction = {
-  type: "setYou" | "setComputer" | "setSum" | "setYouVisual";
-  value: number;
-};
+type NumberGameAction =
+  | {
+      type: "setYou" | "setComputer" | "setSum" | "setYouVisual";
+      value: number;
+    }
+  | { type: "setDifficulty"; value: string };
 
 const initialNumberGameState: NumberGameState = {
   you: 1,
   computer: 0,
   sum: 0,
   youVisual: 0,
+  difficulty: "Hard",
 };
 
 function reducer(state: NumberGameState, action: NumberGameAction) {
@@ -42,6 +46,11 @@ function reducer(state: NumberGameState, action: NumberGameAction) {
       return {
         ...state,
         youVisual: action.value,
+      };
+    case "setDifficulty":
+      return {
+        ...state,
+        difficulty: action.value,
       };
   }
 }

@@ -9,6 +9,7 @@ interface BoxesGameState {
   picked: number;
   played: boolean;
   winner: boolean;
+  difficulty: string;
 }
 
 type BoxesGameAction =
@@ -23,6 +24,10 @@ type BoxesGameAction =
   | {
       type: "setPlayed" | "setWinner";
       value: boolean;
+    }
+  | {
+      type: "setDifficulty";
+      value: string;
     };
 
 const initialBoxesGameState: BoxesGameState = {
@@ -32,6 +37,7 @@ const initialBoxesGameState: BoxesGameState = {
   picked: 0,
   played: false,
   winner: true,
+  difficulty: "Hard",
 };
 
 function reducer(state: BoxesGameState, action: BoxesGameAction) {
@@ -65,6 +71,11 @@ function reducer(state: BoxesGameState, action: BoxesGameAction) {
       return {
         ...state,
         winner: action.value,
+      };
+    case "setDifficulty":
+      return {
+        ...state,
+        difficulty: action.value,
       };
   }
 }

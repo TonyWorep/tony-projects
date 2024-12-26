@@ -47,7 +47,8 @@ export default function NumberGameYouCard() {
                 value: numberGameComputerMove(
                   state.you,
                   state.sum,
-                  randomNumber
+                  randomNumber,
+                  state.difficulty
                 ),
               });
               dispatch({
@@ -55,7 +56,12 @@ export default function NumberGameYouCard() {
                 value:
                   state.sum +
                   state.you +
-                  numberGameComputerMove(state.you, state.sum, randomNumber),
+                  numberGameComputerMove(
+                    state.you,
+                    state.sum,
+                    randomNumber,
+                    state.difficulty
+                  ),
               });
             }}
             disabled={state.sum === 100 ? true : false}

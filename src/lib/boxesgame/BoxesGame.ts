@@ -1,6 +1,10 @@
 const keyNumbers = [1, 5, 9, 13, 17];
 
-export function boxesGameComputerMove(boxes: number, randomNumber: number) {
+export function boxesGameComputerMove(
+  boxes: number,
+  randomNumber: number,
+  difficulty: string
+) {
   let currentKey = 0;
 
   for (let i = 0; i < 5; i++) {
@@ -10,7 +14,7 @@ export function boxesGameComputerMove(boxes: number, randomNumber: number) {
   }
 
   let computerNumber = 0;
-  if (currentKey === 0 && boxes > 0) {
+  if ((currentKey === 0 && boxes > 0) || (boxes > 4 && difficulty === "Easy")) {
     computerNumber = randomNumber;
   } else {
     computerNumber = boxes - currentKey;

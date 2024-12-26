@@ -16,6 +16,8 @@ export default function BoxesGamePlay() {
   let picked: number = 0;
 
   React.useEffect(() => {
+    dispatch({ type: "setYouBoxes", value: 0 });
+    dispatch({ type: "setComputerBoxes", value: 0 });
     for (let i = 0; i < 20; i++) {
       boxesClicked.push(true);
     }
@@ -28,7 +30,10 @@ export default function BoxesGamePlay() {
       boxes.push(
         <Button
           onClick={() => {
-            if (picked < 3) {
+            if (
+              (picked < 3 && boxesClicked.length - picked !== 1) ||
+              picked === 0
+            ) {
               if (boxesClicked[i]) {
                 picked += 1;
                 dispatch({ type: "setPicked", value: picked });
@@ -83,7 +88,8 @@ export default function BoxesGamePlay() {
             : (takeBoxes(
                 boxesGameComputerMove(
                   state.boxes.length - state.picked,
-                  randomNumber
+                  randomNumber,
+                  state.difficulty
                 )
               ),
               dispatch({
@@ -96,7 +102,8 @@ export default function BoxesGamePlay() {
                   state.computerBoxes +
                   boxesGameComputerMove(
                     state.boxes.length - state.picked,
-                    randomNumber
+                    randomNumber,
+                    state.difficulty
                   ),
               }));
         }}
