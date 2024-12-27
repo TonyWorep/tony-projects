@@ -47,7 +47,7 @@ export default function NumberGame() {
         >
           <AccordionItem value="1">
             <AccordionTrigger>
-              Why does the cormputer always win?
+              Why does the computer always win?
             </AccordionTrigger>
             <AccordionContent>
               <p>
