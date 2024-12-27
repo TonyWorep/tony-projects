@@ -17,28 +17,37 @@ export default function NumberGame() {
   const state = React.useContext(NumberGameStateContext);
 
   return (
-    <div className="flex flex-col gap-20 mx-auto min-h-screen">
-      <div>
+    <div className="flex flex-col gap-20 min-h-screen">
+      <div className="flex flex-col ml-5 sm:ml-56">
         <h1 className="font-bold text-4xl">Number Game</h1>
         <p className="opacity-75">First to reach 100 wins.</p>
       </div>
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-col mx-auto gap-2">
         <NumberGameDifficulty />
-        <div className="flex gap-20">
+        <div className="flex flex-col gap-5 lg:flex-row sm:justify-center mx-auto sm:gap-16">
           <NumberGameYouCard />
-          <div className="flex flex-col items-center">
-            <h1 className="font-bold text-2xl">Sum</h1>
-            <p className="font-semi text-xl">{state.sum}</p>
-          </div>
+
+          {state.sum === 100 ? (
+            <NumberGameResult />
+          ) : (
+            <div className="flex flex-col items-center">
+              <h1 className="font-bold text-2xl">Sum</h1>
+              <p className="font-semi text-xl">{state.sum}</p>
+            </div>
+          )}
+
           <NumberGameComputerCard />
         </div>
       </div>
-      {state.sum === 100 ? <NumberGameResult /> : false}
       <div className="flex flex-col mt-auto mb-auto w-full">
-        <Accordion type="single" collapsible className="w-[600px] mx-auto">
+        <Accordion
+          type="single"
+          collapsible
+          className="w-72 sm:w-[600px] mx-auto"
+        >
           <AccordionItem value="1">
             <AccordionTrigger>
-              Why does the computer always win?
+              Why does the cormputer always win?
             </AccordionTrigger>
             <AccordionContent>
               <p>

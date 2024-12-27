@@ -12,7 +12,7 @@ export default function NumberGameComputerCard() {
   const state = React.useContext(NumberGameStateContext);
 
   return (
-    <Card className="w-96">
+    <Card className="w-72 sm:w-96">
       <CardHeader className="flex flex-col items-center">
         <CardTitle>Computer</CardTitle>
         <CardDescription>

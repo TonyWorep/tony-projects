@@ -19,7 +19,7 @@ export default function NumberGameYouCard() {
   const dispatch = React.useContext(NumberGameDispatchContext);
 
   return (
-    <Card className="w-96">
+    <Card className="w-72 sm:w-96">
       <CardHeader className="flex flex-col items-center">
         <CardTitle>You</CardTitle>
         <CardDescription>Choose a number between 1-10.</CardDescription>
@@ -35,6 +35,11 @@ export default function NumberGameYouCard() {
             value={state.you}
             onChange={(e) => {
               dispatch({ type: "setYou", value: Number(e.target.value) });
+            }}
+            onClick={(e) => {
+              if (e.currentTarget.value === "1") {
+                e.currentTarget.value = "";
+              }
             }}
           />
           <Button

@@ -28,7 +28,7 @@ export default function NumberGameResult() {
 
   return (
     <div className="flex flex-col gap-2 items-center">
-      <h1 className="font-bold text-3xl">
+      <h1 className="font-bold text-2xl text-center">
         {state.sum === 100 ? checkWinner() : ""}
       </h1>
       <Button variant={"destructive"} onClick={() => resetGame()}>
