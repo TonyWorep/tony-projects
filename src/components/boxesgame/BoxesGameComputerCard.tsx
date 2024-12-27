@@ -18,14 +18,16 @@ export default function BoxesGameComputerCard() {
   }
 
   return (
-    <Card className="w-96">
+    <Card className="w-72 sm:w-96">
       <CardHeader className="flex flex-col items-center">
         <CardTitle>Computer</CardTitle>
         <CardDescription>
           The computer will respond after you have picked the amount of boxes.
         </CardDescription>
       </CardHeader>
-      <CardContent className="grid grid-cols-9 gap-2">{boxes}</CardContent>
+      <CardContent className="grid grid-cols-6 gap-2 mx-auto sm:grid-cols-9">
+        {boxes}
+      </CardContent>
     </Card>
   );
 }

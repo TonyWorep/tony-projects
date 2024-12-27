@@ -77,7 +77,13 @@ export default function BoxesGamePlay() {
   }
 
   return (
-    <div className="flex flex-col gap-5 h-80">
+    <div
+      className={
+        state.boxes.length === 0
+          ? "hidden"
+          : "flex flex-col mx-auto gap-5 h-80 w-40"
+      }
+    >
       <div className="grid grid-cols-4 gap-2">{state.boxes}</div>
       <Button
         onClick={() => {
@@ -107,7 +113,6 @@ export default function BoxesGamePlay() {
                   ),
               }));
         }}
-        disabled={state.boxes.length === 0 ? true : false}
         className="mt-auto mx-auto w-40"
       >
         Submit

@@ -29,8 +29,12 @@ export default function BoxesGameResult() {
   }
 
   return (
-    <div className="flex flex-col gap-2 items-center">
-      <h1 className="font-bold text-3xl">
+    <div
+      className={
+        state.boxes.length === 0 ? "flex flex-col gap-2 items-center" : "hidden"
+      }
+    >
+      <h1 className="text-center font-bold text-3xl">
         {state.boxes.length === 0 ? checkWinner() : ""}
       </h1>
       <Button variant={"destructive"} onClick={() => resetGame()}>

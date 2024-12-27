@@ -19,22 +19,26 @@ export default function BoxesGame() {
   const state = React.useContext(BoxesGameStateContext);
 
   return (
-    <div className="flex flex-col gap-20 mx-auto min-h-screen">
-      <div>
+    <div className="flex flex-col gap-20 min-h-screen">
+      <div className="flex flex-col ml-5 sm:ml-56">
         <h1 className="font-bold text-4xl">Boxes Game</h1>
         <p className="opacity-75">Last to pick the box loses.</p>
       </div>
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-col mx-auto gap-2">
         <BoxesGameDifficulty />
-        <div className="flex gap-20">
+        <div className="flex flex-col gap-5 lg:flex-row sm:gap-16">
           <BoxesGameYouCard />
           <BoxesGamePlay />
+          <BoxesGameResult />
           <BoxesGameComputerCard />
         </div>
-        {state.boxes.length === 0 ? <BoxesGameResult /> : false}
       </div>
       <div className="flex flex-col mt-auto mb-auto w-full">
-        <Accordion type="single" collapsible className="w-[600px] mx-auto">
+        <Accordion
+          type="single"
+          collapsible
+          className="w-72 sm:w-[600px] mx-auto"
+        >
           <AccordionItem value="1">
             <AccordionTrigger>
               Why does the computer always win?

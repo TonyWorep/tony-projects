@@ -18,12 +18,14 @@ export default function BoxesGameYouCard() {
   }
 
   return (
-    <Card className="w-96">
+    <Card className="w-72 sm:w-96">
       <CardHeader className="flex flex-col items-center">
         <CardTitle>You</CardTitle>
         <CardDescription>Choose 1, 2 or 3 boxes.</CardDescription>
       </CardHeader>
-      <CardContent className="grid grid-cols-9 gap-2">{boxes}</CardContent>
+      <CardContent className="grid grid-cols-6 gap-2 mx-auto sm:grid-cols-9">
+        {boxes}
+      </CardContent>
     </Card>
   );
 }
