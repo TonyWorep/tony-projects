@@ -209,7 +209,6 @@ const haas = [
   "Esteban Gutiérrez",
   "Gio Ricciardo",
   "Pastor Maldonado",
-  "Gene Haas",
 ];
 
 const astonMartin = [
@@ -245,30 +244,12 @@ const winnersWithoutTitles = [
   "Sergio Pérez",
 ];
 
-const astonMartin2022 = ["Sebastian Vettel", "Lance Stroll"];
-
-const astonMartin2023 = ["Fernando Alonso", "Lance Stroll"];
-
-const redBull2013 = ["Sebastian Vettel", "Mark Webber"];
-
-const redBull2019 = ["Max Verstappen", "Sergio Pérez"];
-
-const ferrari2000 = ["Michael Schumacher", "Rubens Barrichello"];
-
-const mclaren2007 = ["Lewis Hamilton", "Fernando Alonso"];
-
-const mercedes2014 = ["Lewis Hamilton", "Nico Rosberg"];
-
 const williams1990s = [
   "Damon Hill",
   "Jacques Villeneuve",
   "Alain Prost",
   "Nigel Mansell",
 ];
-
-const sauber2012 = ["Kamui Kobayashi", "Sergio Pérez"];
-
-const alphaTauri2020 = ["Pierre Gasly", "Daniil Kvyat"];
 
 const raceStarts300 = [
   "Kimi Räikkönen",
@@ -297,14 +278,6 @@ const securedTitleFinalRace = [
   "Fernando Alonso",
   "Max Verstappen",
 ];
-
-const britishFerrari = ["John Surtees", "Gilles Villeneuve", "Kimi Räikkönen"];
-
-const germanWilliams = ["Nico Rosberg", "Keke Rosberg"];
-
-const brazilMonaco = ["Ayrton Senna", "Rubens Barrichello"];
-
-const finnsWonForMclaren = ["Mika Häkkinen", "Kimi Räikkönen"];
 
 const britishGPWinnersForBritishTeams = [
   "Lewis Hamilton",
