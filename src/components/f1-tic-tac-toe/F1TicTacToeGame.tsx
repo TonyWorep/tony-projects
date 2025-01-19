@@ -1,76 +1,92 @@
-import { worldChampions } from "@/lib/f1-tic-tac-toe/f1";
+import { createCategories } from "@/lib/f1-tic-tac-toe/f1Categories";
+import { checkGrid } from "@/lib/f1-tic-tac-toe/f1Logic";
 import React from "react";
 import { Button } from "../ui/Button";
-import { Card } from "../ui/Card";
-import { Command, CommandInput, CommandItem, CommandList } from "../ui/Command";
+import F1TicTacToeGrid from "./F1TicTacToeGrid";
 import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "../ui/Dialog";
+  F1TicTacToeDispatchContext,
+  F1TicTacToeStateContext,
+} from "./F1TicTacToeState";
 
 export default function F1TicTacToeGame() {
-  const [input, setInput] = React.useState("");
+  const state = React.useContext(F1TicTacToeStateContext);
+  const dispatch = React.useContext(F1TicTacToeDispatchContext);
 
-  function makeCard() {
-    let cards = [];
+  React.useEffect(() => {
+    const createdCategories = createCategories();
+    dispatch({ type: "setCategoriesRow", value: createdCategories[0] });
+    dispatch({ type: "setCategoriesColumn", value: createdCategories[1] });
+  }, [state.played]);
 
-    for (let i = 0; i < 9; i++) {
-      cards.push(
-        <Card className="h-32 w-32">
-          <Dialog onOpenChange={(v) => (v ? setInput("") : false)}>
-            <DialogTrigger asChild>
-              <Button
-                variant={"secondary"}
-                className="w-full h-full bg-background"
-              ></Button>
-            </DialogTrigger>
-            <DialogContent>
-              <DialogHeader>
-                <DialogTitle>Driver Search</DialogTitle>
-                <DialogDescription>
-                  Find a past or present driver that fits in the two categories.
-                </DialogDescription>
-              </DialogHeader>
-              <Command>
-                <CommandInput
-                  placeholder="Search Driver..."
-                  onValueChange={(i) => setInput(i)}
-                />
-                <CommandList hidden={input.length > 1 ? false : true}>
-                  {worldChampions.map((driver) => (
-                    <CommandItem>{driver}</CommandItem>
-                  ))}
-                </CommandList>
-              </Command>
-              <DialogFooter>Last updated 17.01.2025</DialogFooter>
-            </DialogContent>
-          </Dialog>
-        </Card>
-      );
+  React.useEffect(() => {
+    const winner = checkGrid(state.grid);
+    if (winner === "X") {
+      dispatch({ type: "setWinnerPlayer", value: "X" });
+      dispatch({ type: "setWinner", value: true });
     }
-    return cards;
+    if (winner === "O") {
+      dispatch({ type: "setWinnerPlayer", value: "O" });
+      dispatch({ type: "setWinner", value: true });
+    }
+  }, [state.player]);
+
+  function checkWinner() {
+    let message = "";
+
+    if (state.winnerPlayer === "X") {
+      message = "X win!";
+    } else if (state.winnerPlayer === "O") {
+      message = "O win!";
+    } else {
+      message = "";
+    }
+
+    return message;
   }
 
+  function resetGame() {
+    const emptyGrid = ["", "", "", "", "", "", "", "", ""];
+
+    dispatch({ type: "setGrid", value: emptyGrid });
+    dispatch({ type: "setGridDriver", value: emptyGrid });
+    dispatch({ type: "setWinnerPlayer", value: "" });
+    dispatch({ type: "setWinner", value: false });
+    dispatch({ type: "setPlayed", value: !state.played });
+  }
   return (
     <div className="mx-auto">
-      <div className="grid grid-cols-4 w-[540px] text-center mb-2 text-xl font-bold">
-        <h1></h1>
-        <h1>Redbull</h1>
-        <h1>Ferrari</h1>
-        <h1>Mercedes</h1>
+      <p
+        className={
+          state.player
+            ? "mb-5 text-xl font-semibold w-20 text-center bg-foreground text-background rounded-sm"
+            : "mb-5 text-xl font-semibold w-20 text-center bg-destructive rounded-sm"
+        }
+      >
+        {state.player ? "X" : "O"} turn
+      </p>
+      <div className="grid grid-cols-4 w-[540px] text-center mb-2">
+        <p></p>
+        {state.categoriesRow.map((category, i) => (
+          <h1 className="text-xl font-bold" key={i}>
+            {category}
+          </h1>
+        ))}
       </div>
-      <div className="flex">
+      <div className="flex mb-10">
         <div className="grid grid-cols-1 w-36 text-center items-center text-xl font-bold">
-          <h1>Home GP Winners</h1>
-          <h1>World Champions</h1>
-          <h1>Winners without Titles</h1>
+          {state.categoriesColumn.map((category, i) => (
+            <h1 key={i}>{category}</h1>
+          ))}
         </div>
-        <div className="grid grid-cols-3 gap-1">{makeCard()}</div>
+        <F1TicTacToeGrid />
+      </div>
+      <div
+        className={state.winner ? "flex flex-col gap-2 items-center" : "hidden"}
+      >
+        <h1 className="text-center font-bold text-3xl">{checkWinner()}</h1>
+        <Button variant={"destructive"} onClick={() => resetGame()}>
+          Play again
+        </Button>
       </div>
     </div>
   );

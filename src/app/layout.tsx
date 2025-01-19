@@ -1,5 +1,6 @@
 import Navbar from "@/components/navbar/Navbar";
 import { ThemeProvider } from "@/components/theme/ThemeProvider";
+import { Toaster } from "@/components/ui/Toaster";
 import type { Metadata } from "next";
 import "./globals.css";
 
@@ -19,6 +20,7 @@ export default function RootLayout({
         <ThemeProvider attribute={"class"} defaultTheme="system" enableSystem>
           <Navbar />
           {children}
+          <Toaster />
         </ThemeProvider>
       </body>
     </html>
