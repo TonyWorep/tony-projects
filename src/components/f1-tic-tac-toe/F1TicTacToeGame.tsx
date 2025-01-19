@@ -58,11 +58,11 @@ export default function F1TicTacToeGame() {
       <p
         className={
           state.player
-            ? "mb-5 text-xl font-semibold w-20 text-center bg-foreground text-background rounded-sm"
-            : "mb-5 text-xl font-semibold w-20 text-center bg-destructive rounded-sm"
+            ? "mb-5 text-xl font-semibold w-28 text-center bg-foreground text-background rounded-sm"
+            : "mb-5 text-xl font-semibold w-28 text-center bg-destructive rounded-sm"
         }
       >
-        {state.player ? "X" : "O"} turn
+        {state.player ? "X" : "O"}&apos;s TURN
       </p>
       <div className="grid grid-cols-4 w-[540px] text-center mb-2">
         <p></p>

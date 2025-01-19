@@ -18,13 +18,14 @@ export default function F1TicTacToeDriverSearch() {
     const grid = [...state.grid];
     const drivers = [...state.gridDriver];
     const position = getPosition(state.card);
+    const displayDriver = driver.split(" ");
 
     if (
       categories[state.categoriesRow[position[0]]].includes(driver) &&
       categories[state.categoriesColumn[position[1]]].includes(driver)
     ) {
       grid[state.card] = state.player ? "X" : "O";
-      drivers[state.card] = driver;
+      drivers[state.card] = `${displayDriver[0][0]}. ${displayDriver[1]}`;
 
       dispatch({ type: "setGrid", value: grid });
       dispatch({ type: "setGridDriver", value: drivers });
