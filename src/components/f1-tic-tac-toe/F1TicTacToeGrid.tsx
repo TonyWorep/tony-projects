@@ -1,4 +1,5 @@
 import { lastUpdated } from "@/lib/f1-tic-tac-toe/f1";
+import { getPosition } from "@/lib/f1-tic-tac-toe/f1Logic";
 import React from "react";
 import { Button } from "../ui/Button";
 import { Card } from "../ui/Card";
@@ -35,6 +36,7 @@ export default function F1TicTacToeGrid() {
               onClick={() => {
                 dispatch({ type: "setOpen", value: true });
                 dispatch({ type: "setCard", value: i });
+                dispatch({ type: "setPosition", value: getPosition(i) });
               }}
             >
               <div className="flex flex-col">
@@ -53,14 +55,16 @@ export default function F1TicTacToeGrid() {
           </DialogTrigger>
           <DialogContent
             onEscapeKeyDown={() => dispatch({ type: "setOpen", value: false })}
-            onPointerDownOutside={() =>
-              dispatch({ type: "setOpen", value: false })
-            }
+            onPointerDownOutside={() => {
+              dispatch({ type: "setOpen", value: false });
+            }}
           >
             <DialogHeader>
               <DialogTitle>Driver Search</DialogTitle>
               <DialogDescription>
-                Find a past or present driver that fits in the two categories.
+                Find a past or present driver that fits in{" "}
+                {state.categoriesRow[state.position[0]]} and{" "}
+                {state.categoriesColumn[state.position[1]]}.
               </DialogDescription>
             </DialogHeader>
             <F1TicTacToeDriverSearch />

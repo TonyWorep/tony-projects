@@ -1,6 +1,5 @@
 import { useToast } from "@/hooks/use-toast";
 import { categories, drivers } from "@/lib/f1-tic-tac-toe/f1";
-import { getPosition } from "@/lib/f1-tic-tac-toe/f1Logic";
 import React from "react";
 import { Command, CommandInput, CommandItem, CommandList } from "../ui/Command";
 import {
@@ -17,7 +16,7 @@ export default function F1TicTacToeDriverSearch() {
   function pickDriver(driver: string) {
     const grid = [...state.grid];
     const drivers = [...state.gridDriver];
-    const position = getPosition(state.card);
+    const position = state.position;
     const displayDriver = driver.split(" ");
     const driverShortHands = [];
 

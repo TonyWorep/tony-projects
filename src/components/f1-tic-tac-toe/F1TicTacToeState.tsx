@@ -13,6 +13,7 @@ interface F1TicTacToeState {
   categoriesRow: string[];
   categoriesColumn: string[];
   played: boolean;
+  position: number[];
 }
 
 type F1TicTacToeAction =
@@ -35,6 +36,10 @@ type F1TicTacToeAction =
   | {
       type: "setWinnerPlayer";
       value: string;
+    }
+  | {
+      type: "setPosition";
+      value: number[];
     };
 
 const initialF1TicTacToeState: F1TicTacToeState = {
@@ -48,6 +53,7 @@ const initialF1TicTacToeState: F1TicTacToeState = {
   categoriesColumn: ["", "", ""],
   played: false,
   winnerPlayer: "",
+  position: [0, 0],
 };
 
 function reducer(state: F1TicTacToeState, action: F1TicTacToeAction) {
@@ -101,6 +107,11 @@ function reducer(state: F1TicTacToeState, action: F1TicTacToeAction) {
       return {
         ...state,
         winnerPlayer: action.value,
+      };
+    case "setPosition":
+      return {
+        ...state,
+        position: action.value,
       };
   }
 }
