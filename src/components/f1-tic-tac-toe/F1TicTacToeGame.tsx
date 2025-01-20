@@ -65,8 +65,8 @@ export default function F1TicTacToeGame() {
         <p
           className={
             state.player
-              ? "mb-5 text-xl font-semibold w-28 h-8 text-center bg-foreground text-background rounded-sm"
-              : "mb-5 text-xl font-semibold w-28 h-8 text-center bg-destructive rounded-sm"
+              ? "mb-5 text-xl font-semibold w-28 h-8 text-center bg-foreground text-background rounded-sm border-b-4 border-muted-foreground"
+              : "mb-5 text-xl font-semibold w-28 h-8 text-center bg-destructive rounded-sm border-b-4 border-red-950"
           }
         >
           {state.player ? "X" : "O"}&apos;s TURN
