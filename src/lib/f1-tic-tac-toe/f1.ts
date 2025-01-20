@@ -159,7 +159,7 @@ const redBull = [
   "Daniel Ricciardo",
   "Max Verstappen",
   "Pierre Gasly",
-  "Alex Albon",
+  "Alexander Albon",
   "Sergio Pérez",
   "Liam Lawson",
 ];
