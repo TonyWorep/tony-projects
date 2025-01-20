@@ -28,6 +28,10 @@ export default function F1TicTacToeGame() {
       dispatch({ type: "setWinnerPlayer", value: "O" });
       dispatch({ type: "setWinner", value: true });
     }
+    if (winner === "Draw") {
+      dispatch({ type: "setWinner", value: true });
+      dispatch({ type: "setWinnerPlayer", value: "Draw" });
+    }
   }, [state.player]);
 
   function checkWinner() {
@@ -37,6 +41,8 @@ export default function F1TicTacToeGame() {
       message = "X win!";
     } else if (state.winnerPlayer === "O") {
       message = "O win!";
+    } else if (state.winnerPlayer === "Draw") {
+      message = "Draw.";
     } else {
       message = "";
     }
@@ -55,15 +61,27 @@ export default function F1TicTacToeGame() {
   }
   return (
     <div className="mx-auto">
-      <p
-        className={
-          state.player
-            ? "mb-5 text-xl font-semibold w-28 text-center bg-foreground text-background rounded-sm"
-            : "mb-5 text-xl font-semibold w-28 text-center bg-destructive rounded-sm"
-        }
-      >
-        {state.player ? "X" : "O"}&apos;s TURN
-      </p>
+      <div className="flex gap-36">
+        <p
+          className={
+            state.player
+              ? "mb-5 text-xl font-semibold w-28 h-8 text-center bg-foreground text-background rounded-sm"
+              : "mb-5 text-xl font-semibold w-28 h-8 text-center bg-destructive rounded-sm"
+          }
+        >
+          {state.player ? "X" : "O"}&apos;s TURN
+        </p>
+        <div
+          className={
+            state.winner ? "flex flex-col gap-2 items-center mb-10" : "hidden"
+          }
+        >
+          <h1 className="text-center font-bold text-3xl">{checkWinner()}</h1>
+          <Button variant={"destructive"} onClick={() => resetGame()}>
+            Play again
+          </Button>
+        </div>
+      </div>
       <div className="grid grid-cols-4 w-[540px] text-center mb-2">
         <p></p>
         {state.categoriesRow.map((category, i) => (
@@ -79,14 +97,6 @@ export default function F1TicTacToeGame() {
           ))}
         </div>
         <F1TicTacToeGrid />
-      </div>
-      <div
-        className={state.winner ? "flex flex-col gap-2 items-center" : "hidden"}
-      >
-        <h1 className="text-center font-bold text-3xl">{checkWinner()}</h1>
-        <Button variant={"destructive"} onClick={() => resetGame()}>
-          Play again
-        </Button>
       </div>
     </div>
   );

@@ -36,5 +36,9 @@ export function checkGrid(grid: string[]) {
     return grid[2];
   }
 
+  if (grid.every((e) => e !== "")) {
+    return "Draw";
+  }
+
   return "";
 }
