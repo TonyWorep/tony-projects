@@ -1,11 +1,8 @@
 "use client";
 
-import React from "react";
 import F1TicTacToeGame from "./F1TicTacToeGame";
 
 export default function F1TicTacToeApp() {
-  const [state, setState] = React.useState("");
-
   return (
     <div className="flex flex-col gap-20 min-h-screen">
       <div className="flex flex-col ml-5 sm:ml-56">
