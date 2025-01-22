@@ -625,16 +625,7 @@ const toroRosso = [
   "Liam Lawson",
   "Nyck de Vries",
   "Isack Hadjar",
-];
-
-const hondaTeams = [
-  "Jenson Button",
-  "Rubens Barrichello",
-  "Takuma Sato",
-  "Ralf Schumacher",
-  "Olivier Panis",
-  "Christian Klien",
-  "Alex Wurz",
+  "Yuki Tsunoda",
 ];
 
 const winnersWithoutTitles = [...worldChampions, ...raceWinners].filter(
@@ -693,12 +684,6 @@ const grandSlamAchievers = [
   "Ayrton Senna",
   "Lewis Hamilton",
   "Sebastian Vettel",
-];
-
-const reserveRoleDrivers = [
-  "Robert Kubica",
-  "Jenson Button",
-  "Mick Schumacher",
 ];
 
 const usa = [
@@ -870,7 +855,7 @@ export const categories: Record<string, string[]> = {
   "Race Winners": raceWinners,
   Ferrari: ferrari,
   McLaren: mclaren,
-  RedBull: redBull,
+  "Red Bull": redBull,
   Mercedes: mercedes,
   Williams: williams,
   Enstone: enstone,
@@ -878,7 +863,6 @@ export const categories: Record<string, string[]> = {
   Haas: haas,
   "Aston Martin": astonMartin,
   "Toro Rosso": toroRosso,
-  "Honda Teams": hondaTeams,
   "Winners without Titles": winnersWithoutTitles,
   "Williams 1990s": williams1990s,
   "300 Race Starts": raceStarts300,
@@ -888,11 +872,42 @@ export const categories: Record<string, string[]> = {
   "British GP Winners for British Team": britishGPWinnersForBritishTeams,
   "Mid Season Debuts": midSeasonDebuts,
   "Grand Slam Achievers": grandSlamAchievers,
-  "Reserve Role Drivers": reserveRoleDrivers,
   "United States of America": usa,
+  Austria: austria,
   Australia: australia,
   Belgium: belgium,
   Brazil: brazil,
+};
+
+export const categoriesToolTip: Record<string, string> = {
+  "World Champions": "Been a Driver World Champion",
+  "Race Winners": "Won a Grand Prix",
+  Ferrari: "Scuderia Ferrari HP",
+  McLaren: "McLaren Formula 1 Team",
+  "Red Bull": "Oracle Red Bull Racing",
+  Mercedes: "Mercedes-AMG Petronas F1 Team",
+  Williams: "Williams Racing",
+  Enstone: "Toleman, Benetton, Renault, Lotus, Alpine",
+  Sauber: "Alfa Romeo, Sauber",
+  Haas: "MoneyGram Haas F1 Team",
+  "Aston Martin": "Force India, Racing Point, Aston Martin",
+  "Toro Rosso": "Toro Rosso, AlphaTauri, VCARB",
+  "Winners without Titles":
+    "Won a Grand Prix but not the Driver World Championship",
+  "Williams 1990s": "Driven for Williams in the 1990s",
+  "300 Race Starts": "Started more than 300 races",
+  "Won Monza Multiple Times": "Says in the title blud.",
+  "Home GP Winners": "Won their home country's Grand Prix",
+  "Secured Title in the Final Race": "Dawg can u read",
+  "British GP Winners for British Team": "Oi fam you want some fish n' chips?",
+  "Mid Season Debuts": "Got their driver debut during the season",
+  "Grand Slam Achievers":
+    "Got first in all the Practices, Qualifying and Grand Prix",
+  "United States of America": "A murica",
+  Austria: "Austrian",
+  Australia: "Australian",
+  Belgium: "Belgian",
+  Brazil: "Brazilian",
 };
 
 const allDrivers = [
@@ -907,7 +922,6 @@ const allDrivers = [
   ...haas,
   ...astonMartin,
   ...toroRosso,
-  ...hondaTeams,
   ...winnersWithoutTitles,
   ...williams1990s,
   ...raceStarts300,
@@ -917,8 +931,8 @@ const allDrivers = [
   ...britishGPWinnersForBritishTeams,
   ...midSeasonDebuts,
   ...grandSlamAchievers,
-  ...reserveRoleDrivers,
   ...usa,
+  ...austria,
   ...australia,
   ...belgium,
   ...brazil,
