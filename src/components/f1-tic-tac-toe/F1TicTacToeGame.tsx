@@ -1,7 +1,9 @@
+import { categoriesToolTip } from "@/lib/f1-tic-tac-toe/f1";
 import { createCategories } from "@/lib/f1-tic-tac-toe/f1Categories";
 import { checkGrid } from "@/lib/f1-tic-tac-toe/f1Logic";
 import React from "react";
 import { Button } from "../ui/Button";
+import { Tooltip, TooltipContent, TooltipTrigger } from "../ui/Tooltip";
 import F1TicTacToeGrid from "./F1TicTacToeGrid";
 import {
   F1TicTacToeDispatchContext,
@@ -85,15 +87,31 @@ export default function F1TicTacToeGame() {
       <div className="grid grid-cols-4 w-[540px] text-center mb-2">
         <p></p>
         {state.categoriesRow.map((category, i) => (
-          <h1 className="text-xl font-bold" key={i}>
-            {category}
-          </h1>
+          <Tooltip>
+            <TooltipTrigger>
+              <h1 className="text-xl font-bold" key={i}>
+                {category}
+              </h1>
+            </TooltipTrigger>
+            <TooltipContent>
+              <p>{categoriesToolTip[state.categoriesRow[i]]}</p>
+            </TooltipContent>
+          </Tooltip>
         ))}
       </div>
       <div className="flex mb-10">
-        <div className="grid grid-cols-1 w-36 text-center items-center text-xl font-bold">
+        <div className="grid grid-cols-1 w-36 text-center items-center">
           {state.categoriesColumn.map((category, i) => (
-            <h1 key={i}>{category}</h1>
+            <Tooltip>
+              <TooltipTrigger>
+                <h1 className="text-xl font-bold" key={i}>
+                  {category}
+                </h1>
+              </TooltipTrigger>
+              <TooltipContent>
+                <p>{categoriesToolTip[state.categoriesColumn[i]]}</p>
+              </TooltipContent>
+            </Tooltip>
           ))}
         </div>
         <F1TicTacToeGrid />

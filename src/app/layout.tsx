@@ -1,6 +1,7 @@
 import Navbar from "@/components/navbar/Navbar";
 import { ThemeProvider } from "@/components/theme/ThemeProvider";
 import { Toaster } from "@/components/ui/Toaster";
+import { TooltipProvider } from "@/components/ui/Tooltip";
 import type { Metadata } from "next";
 import "./globals.css";
 
@@ -18,9 +19,11 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning={true}>
       <body className={`flex flex-col`}>
         <ThemeProvider attribute={"class"} defaultTheme="system" enableSystem>
-          <Navbar />
-          {children}
-          <Toaster />
+          <TooltipProvider>
+            <Navbar />
+            {children}
+            <Toaster />
+          </TooltipProvider>
         </ThemeProvider>
       </body>
     </html>
