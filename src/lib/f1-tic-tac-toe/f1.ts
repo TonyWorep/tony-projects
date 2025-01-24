@@ -287,6 +287,7 @@ const mclaren = [
   "Gilles Villeneuve",
   "John Watson",
   "Alexander Wurz",
+  "Oscar Piastri",
 ];
 
 const redBull = [
