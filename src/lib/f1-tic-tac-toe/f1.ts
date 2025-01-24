@@ -792,7 +792,7 @@ const belgium = [
   "Philippe Adams",
   "Georges Berger",
   "Lucien Bianchi",
-  "Thierr Boutsen",
+  "Thierry Boutsen",
   "Alain de Chagny",
   "Johnny Claes",
   "Jerome d'Ambrosio",
