@@ -26,7 +26,7 @@ export default function F1TicTacToeGrid() {
 
   for (let i = 0; i < 9; i++) {
     cards.push(
-      <Card key={i} className="h-32 w-32">
+      <Card key={i} className="h-20 w-20 sm:h-32 sm:w-32">
         <Dialog open={state.open}>
           <DialogTrigger asChild>
             <Button
@@ -43,13 +43,13 @@ export default function F1TicTacToeGrid() {
                 <h1
                   className={
                     state.grid[i] === "X"
-                      ? "text-7xl"
-                      : "text-7xl text-destructive"
+                      ? "text-5xl sm:text-7xl"
+                      : "text-5xl sm:text-7xl text-destructive"
                   }
                 >
                   {state.grid[i]}
                 </h1>
-                <p>{state.gridDriver[i]}</p>
+                <p className="text-[10px] sm:text-sm">{state.gridDriver[i]}</p>
               </div>
             </Button>
           </DialogTrigger>

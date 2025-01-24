@@ -84,12 +84,12 @@ export default function F1TicTacToeGame() {
           </Button>
         </div>
       </div>
-      <div className="grid grid-cols-4 w-[540px] text-center mb-2">
+      <div className="grid grid-cols-4 text-center mb-2 sm:w-[540px] ">
         <p></p>
         {state.categoriesRow.map((category, i) => (
           <Tooltip>
             <TooltipTrigger>
-              <h1 className="text-xl font-bold" key={i}>
+              <h1 className="text-sm font-bold sm:text-xl" key={i}>
                 {category}
               </h1>
             </TooltipTrigger>
@@ -100,11 +100,11 @@ export default function F1TicTacToeGame() {
         ))}
       </div>
       <div className="flex mb-10">
-        <div className="grid grid-cols-1 w-36 text-center items-center">
+        <div className="grid grid-cols-1 text-center items-center w-20 sm:w-36">
           {state.categoriesColumn.map((category, i) => (
             <Tooltip>
               <TooltipTrigger>
-                <h1 className="text-xl font-bold" key={i}>
+                <h1 className="text-sm font-bold sm:text-xl" key={i}>
                   {category}
                 </h1>
               </TooltipTrigger>
