@@ -63,7 +63,7 @@ export default function F1TicTacToeGame() {
   }
   return (
     <div className="mx-auto">
-      <div className="flex gap-36">
+      <div className="flex gap-10 sm:gap-36">
         <p
           className={
             state.player
