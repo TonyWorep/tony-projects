@@ -54,14 +54,14 @@ export default function F1TicTacToeDriverSearch() {
   }
 
   return (
-    <Command>
+    <Command loop>
       <CommandInput
         placeholder="Search Driver..."
         onValueChange={(d) => setInput(d)}
       />
       <CommandList hidden={input.length > 1 ? false : true}>
         {drivers.map((driver, v) => (
-          <CommandItem key={v}>
+          <CommandItem key={v} onSelect={() => pickDriver(driver)}>
             <p
               className="w-full h-full"
               onClick={() => {
