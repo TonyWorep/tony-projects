@@ -56,7 +56,7 @@ export default function MarienbadGame() {
               Col 4
             </Button>
           </div>
-          <Button></Button>
+          <Button>Submit</Button>
         </div>
       </div>
     </div>
