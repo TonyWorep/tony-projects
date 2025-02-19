@@ -43,7 +43,6 @@ export function MarienbadGamePlay() {
     }
 
     dispatch({ type: "setPlatesAmount", value: platesAmount });
-    console.log(state.col);
   }
 
   return (
@@ -98,6 +97,9 @@ export function MarienbadGamePlay() {
             platesAmount,
             state.col
           )!;
+
+          platesAmount[computerMove[0]] -= computerMove[1];
+          dispatch({ type: "setPlatesAmount", value: platesAmount });
         }}
       >
         Submit
