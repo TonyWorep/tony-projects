@@ -1,4 +1,4 @@
-import { Button } from "../ui/Button";
+import { MarienbadGamePlay } from "./MarienbadGamePlay";
 
 export default function MarienbadGame() {
   return (
@@ -8,56 +8,7 @@ export default function MarienbadGame() {
         <p className="opacity-75">Last to pick the plate loses.</p>
       </div>
       <div className="mx-auto">
-        <div className="flex gap-10 place-items-end">
-          <div className="flex flex-col gap-5">
-            <div className="grid grid-rows-1 w-24">
-              <Button disabled className="disabled:opacity-100"></Button>
-            </div>
-            <Button variant={"destructive"} className="w-14 mx-auto">
-              Col 1
-            </Button>
-          </div>
-
-          <div className="flex flex-col gap-5">
-            <div className="grid grid-rows-1 gap-1 w-24">
-              <Button disabled className="disabled:opacity-100"></Button>
-              <Button disabled className="disabled:opacity-100"></Button>
-              <Button disabled className="disabled:opacity-100"></Button>
-            </div>
-            <Button variant={"destructive"} className="w-14 mx-auto">
-              Col 2
-            </Button>
-          </div>
-
-          <div className="flex flex-col gap-5">
-            <div className="grid grid-rows-1 gap-1 w-24">
-              <Button disabled className="disabled:opacity-100"></Button>
-              <Button disabled className="disabled:opacity-100"></Button>
-              <Button disabled className="disabled:opacity-100"></Button>
-              <Button disabled className="disabled:opacity-100"></Button>
-              <Button disabled className="disabled:opacity-100"></Button>
-            </div>
-            <Button variant={"destructive"} className="w-14 mx-auto">
-              Col 3
-            </Button>
-          </div>
-
-          <div className="flex flex-col gap-5">
-            <div className="grid grid-rows-1 gap-1 w-24">
-              <Button disabled className="disabled:opacity-100"></Button>
-              <Button disabled className="disabled:opacity-100"></Button>
-              <Button disabled className="disabled:opacity-100"></Button>
-              <Button disabled className="disabled:opacity-100"></Button>
-              <Button disabled className="disabled:opacity-100"></Button>
-              <Button disabled className="disabled:opacity-100"></Button>
-              <Button disabled className="disabled:opacity-100"></Button>
-            </div>
-            <Button variant={"destructive"} className="w-14 mx-auto">
-              Col 4
-            </Button>
-          </div>
-          <Button>Submit</Button>
-        </div>
+        <MarienbadGamePlay />
       </div>
     </div>
   );

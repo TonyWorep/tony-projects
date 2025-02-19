@@ -8,8 +8,8 @@ interface MarienbadGameState {
   played: boolean;
   winner: boolean;
   difficulty: string;
-  plates: React.ReactElement[];
-  platesAmount: React.ReactElement[];
+  plates: Array<React.ReactElement[]>;
+  platesAmount: number[];
 }
 
 type MarienbadGameAction =
@@ -22,8 +22,12 @@ type MarienbadGameAction =
       value: boolean;
     }
   | {
-      type: "setPlates" | "setPlatesAmount";
-      value: React.ReactElement[];
+      type: "setPlates";
+      value: Array<React.ReactElement[]>;
+    }
+  | {
+      type: "setPlatesAmount";
+      value: number[];
     };
 
 const initialMarienbadGameState: MarienbadGameState = {
@@ -33,7 +37,7 @@ const initialMarienbadGameState: MarienbadGameState = {
   winner: false,
   difficulty: "Hard",
   plates: [],
-  platesAmount: [],
+  platesAmount: [1, 3, 5, 7],
 };
 
 function reducer(state: MarienbadGameState, action: MarienbadGameAction) {
