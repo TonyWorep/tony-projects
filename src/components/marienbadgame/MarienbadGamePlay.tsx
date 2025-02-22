@@ -36,13 +36,13 @@ export function MarienbadGamePlay() {
 
     if (platesAmount[i - 1] !== 0 && (state.col === 0 || state.col === i)) {
       platesAmount[i - 1] -= 1;
-    }
 
-    if (state.col === 0) {
-      dispatch({ type: "setCol", value: i });
-    }
+      if (state.col === 0) {
+        dispatch({ type: "setCol", value: i });
+      }
 
-    dispatch({ type: "setPlatesAmount", value: platesAmount });
+      dispatch({ type: "setPlatesAmount", value: platesAmount });
+    }
   }
 
   return (
@@ -93,13 +93,13 @@ export function MarienbadGamePlay() {
       <Button
         onClick={() => {
           const platesAmount = [...state.platesAmount];
-          const computerMove: number[] = MarienbadGameComputerMove(
-            platesAmount,
-            state.col
-          )!;
+          const [col, amount] = MarienbadGameComputerMove(platesAmount)!;
 
-          platesAmount[computerMove[0]] -= computerMove[1];
-          dispatch({ type: "setPlatesAmount", value: platesAmount });
+          if (state.col !== 0 || platesAmount.reduce((x, y) => x + y) === 16) {
+            platesAmount[col] -= amount;
+            dispatch({ type: "setPlatesAmount", value: platesAmount });
+            dispatch({ type: "setCol", value: 0 });
+          }
         }}
       >
         Submit
