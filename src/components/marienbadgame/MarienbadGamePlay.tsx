@@ -91,6 +91,9 @@ export function MarienbadGamePlay() {
         </Button>
       </div>
       <Button
+        disabled={
+          state.platesAmount.reduce((x, y) => x + y) === 0 ? true : false
+        }
         onClick={() => {
           const platesAmount = [...state.platesAmount];
           const [col, amount] = MarienbadGameComputerMove(platesAmount)!;
@@ -99,6 +102,10 @@ export function MarienbadGamePlay() {
             platesAmount[col] -= amount;
             dispatch({ type: "setPlatesAmount", value: platesAmount });
             dispatch({ type: "setCol", value: 0 });
+          }
+
+          if (platesAmount.reduce((x, y) => x + y) === 0) {
+            dispatch({ type: "setWinner", value: true });
           }
         }}
       >

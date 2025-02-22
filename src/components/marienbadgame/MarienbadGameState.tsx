@@ -4,8 +4,6 @@ import React from "react";
 
 interface MarienbadGameState {
   col: number;
-  picked: number;
-  played: boolean;
   winner: boolean;
   difficulty: string;
   plates: Array<React.ReactElement[]>;
@@ -14,11 +12,11 @@ interface MarienbadGameState {
 
 type MarienbadGameAction =
   | {
-      type: "setCol" | "setPicked";
+      type: "setCol";
       value: number;
     }
   | {
-      type: "setPlayed" | "setWinner";
+      type: "setWinner";
       value: boolean;
     }
   | {
@@ -32,8 +30,6 @@ type MarienbadGameAction =
 
 const initialMarienbadGameState: MarienbadGameState = {
   col: 0,
-  picked: 0,
-  played: false,
   winner: false,
   difficulty: "Hard",
   plates: [],
@@ -46,16 +42,6 @@ function reducer(state: MarienbadGameState, action: MarienbadGameAction) {
       return {
         ...state,
         col: action.value,
-      };
-    case "setPicked":
-      return {
-        ...state,
-        picked: action.value,
-      };
-    case "setPlayed":
-      return {
-        ...state,
-        played: action.value,
       };
     case "setWinner":
       return {

@@ -1,4 +1,5 @@
 import { MarienbadGamePlay } from "./MarienbadGamePlay";
+import MarienbadGameResult from "./MarienbadGameResult";
 
 export default function MarienbadGame() {
   return (
@@ -8,6 +9,7 @@ export default function MarienbadGame() {
         <p className="opacity-75">Last to pick the plate loses.</p>
       </div>
       <div className="mx-auto">
+        <MarienbadGameResult />
         <MarienbadGamePlay />
       </div>
     </div>
