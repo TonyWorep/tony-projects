@@ -5,7 +5,6 @@ import React from "react";
 interface MarienbadGameState {
   col: number;
   winner: boolean;
-  difficulty: string;
   plates: Array<React.ReactElement[]>;
   platesAmount: number[];
 }
@@ -31,7 +30,6 @@ type MarienbadGameAction =
 const initialMarienbadGameState: MarienbadGameState = {
   col: 0,
   winner: false,
-  difficulty: "Hard",
   plates: [],
   platesAmount: [1, 3, 5, 7],
 };

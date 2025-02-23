@@ -72,7 +72,7 @@ export function MarienbadGamePlay() {
         }
         onClick={() => {
           const platesAmount = [...state.platesAmount];
-          const [col, amount] = MarienbadGameComputerMove(platesAmount)!;
+          const [col, amount] = MarienbadGameComputerMove(platesAmount);
 
           if (state.col !== 0 || platesAmount.reduce((x, y) => x + y) === 16) {
             platesAmount[col] -= amount;
