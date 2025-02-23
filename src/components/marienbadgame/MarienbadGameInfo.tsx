@@ -10,7 +10,9 @@ export default function MarienbadGameInfo() {
   return (
     <Card
       className={
-        state.platesAmount.reduce((x, y) => x + y) === 16 ? "mt-5" : "hidden"
+        state.platesAmount.reduce((x, y) => x + y) === 16
+          ? "mt-5 w-80 sm:w-full"
+          : "hidden"
       }
     >
       <CardContent className="px-auto pt-5">

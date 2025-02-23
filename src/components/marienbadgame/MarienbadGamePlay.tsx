@@ -22,7 +22,7 @@ export function MarienbadGamePlay() {
           <Button
             key={`${i}-${v}`}
             disabled
-            className="disabled:opacity-100"
+            className="disabled:opacity-100 w-14 sm:w-24"
           ></Button>
         );
       }
@@ -49,16 +49,18 @@ export function MarienbadGamePlay() {
     <div
       className={
         state.platesAmount.reduce((x, y) => x + y) === 0
-          ? "flex gap-10 mt-20"
-          : "flex gap-10 place-items-end h-96"
+          ? "flex mt-20 sm:gap-10"
+          : "flex place-items-end h-96 gap-1 sm:gap-10"
       }
     >
       {state.platesAmount.map((_, i) => (
-        <div className="flex flex-col gap-5">
-          <div className="grid grid-rows-1 gap-1 w-24">{state.plates[i]}</div>
+        <div key={i} className="flex flex-col gap-5">
+          <div className="grid grid-rows-1 gap-1 w-16 sm:w-24">
+            {state.plates[i]}
+          </div>
           <Button
             variant={"destructive"}
-            className="w-14 mx-auto"
+            className="w-14 sm:mx-auto"
             onClick={() => removePlate(i + 1)}
           >
             {`Col ${i + 1}`}
@@ -66,7 +68,7 @@ export function MarienbadGamePlay() {
         </div>
       ))}
       <Button
-        className="mt-5"
+        className="mt-5 w-12 sm:w-full"
         disabled={
           state.platesAmount.reduce((x, y) => x + y) === 0 ? true : false
         }
