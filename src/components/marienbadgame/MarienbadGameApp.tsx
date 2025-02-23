@@ -1,3 +1,5 @@
+import MarienbadGameAccordion from "./MarienbadGameAccordion";
+import MarienbadGameInfo from "./MarienbadGameInfo";
 import { MarienbadGamePlay } from "./MarienbadGamePlay";
 import MarienbadGameResult from "./MarienbadGameResult";
 
@@ -11,6 +13,8 @@ export default function MarienbadGame() {
       <div className="mx-auto">
         <MarienbadGameResult />
         <MarienbadGamePlay />
+        <MarienbadGameInfo />
+        <MarienbadGameAccordion />
       </div>
     </div>
   );

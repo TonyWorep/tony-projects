@@ -46,7 +46,13 @@ export function MarienbadGamePlay() {
   }
 
   return (
-    <div className="flex gap-10 place-items-end h-96">
+    <div
+      className={
+        state.platesAmount.reduce((x, y) => x + y) === 0
+          ? "flex gap-10 mt-20"
+          : "flex gap-10 place-items-end h-96"
+      }
+    >
       <div className="flex flex-col gap-5">
         <div className="grid grid-rows-1 w-24">{state.plates[0]}</div>
         <Button
@@ -91,6 +97,7 @@ export function MarienbadGamePlay() {
         </Button>
       </div>
       <Button
+        className="mt-5"
         disabled={
           state.platesAmount.reduce((x, y) => x + y) === 0 ? true : false
         }
