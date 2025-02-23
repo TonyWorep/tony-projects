@@ -53,49 +53,18 @@ export function MarienbadGamePlay() {
           : "flex gap-10 place-items-end h-96"
       }
     >
-      <div className="flex flex-col gap-5">
-        <div className="grid grid-rows-1 w-24">{state.plates[0]}</div>
-        <Button
-          variant={"destructive"}
-          className="w-14 mx-auto"
-          onClick={() => removePlate(1)}
-        >
-          Col 1
-        </Button>
-      </div>
-
-      <div className="flex flex-col gap-5">
-        <div className="grid grid-rows-1 gap-1 w-24">{state.plates[1]}</div>
-        <Button
-          variant={"destructive"}
-          className="w-14 mx-auto"
-          onClick={() => removePlate(2)}
-        >
-          Col 2
-        </Button>
-      </div>
-
-      <div className="flex flex-col gap-5">
-        <div className="grid grid-rows-1 gap-1 w-24">{state.plates[2]}</div>
-        <Button
-          variant={"destructive"}
-          className="w-14 mx-auto"
-          onClick={() => removePlate(3)}
-        >
-          Col 3
-        </Button>
-      </div>
-
-      <div className="flex flex-col gap-5">
-        <div className="grid grid-rows-1 gap-1 w-24">{state.plates[3]}</div>
-        <Button
-          variant={"destructive"}
-          className="w-14 mx-auto"
-          onClick={() => removePlate(4)}
-        >
-          Col 4
-        </Button>
-      </div>
+      {state.platesAmount.map((_, i) => (
+        <div className="flex flex-col gap-5">
+          <div className="grid grid-rows-1 gap-1 w-24">{state.plates[i]}</div>
+          <Button
+            variant={"destructive"}
+            className="w-14 mx-auto"
+            onClick={() => removePlate(i + 1)}
+          >
+            {`Col ${i + 1}`}
+          </Button>
+        </div>
+      ))}
       <Button
         className="mt-5"
         disabled={
