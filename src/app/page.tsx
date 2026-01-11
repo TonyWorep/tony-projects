@@ -7,6 +7,7 @@ export default function Home() {
       <Link href="/boxesgame">Click here for Boxes Game</Link>
       <Link href="/f1-tic-tac-toe">Click here for Formula 1 Tic Tac Toe</Link>
       <Link href="/marienbadgame">Click here for Marienbad Game</Link>
+      <Link href="/thabetsstanding">Click here for Tha Bets Standing</Link>
     </div>
   );
 }
