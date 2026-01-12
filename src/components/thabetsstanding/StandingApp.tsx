@@ -1,7 +1,7 @@
 import { Driver, drivers, f1Tracks } from "@/lib/thabetsstanding/info";
 
 export default function StandingApp() {
-  const TRACK_INDEX = 1;
+  const TRACK_INDEX = 3;
 
   const driversArray: Driver[] = Object.entries(drivers)
     .map(([name, data]) => ({
