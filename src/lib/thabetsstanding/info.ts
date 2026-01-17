@@ -19,7 +19,7 @@ export const drivers = {
   },
 };
 
-export const TRACK_INDEX = 5;
+export const TRACK_INDEX = 6;
 
 export const f1Tracks = [
   "Melbourne",
