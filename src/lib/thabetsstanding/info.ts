@@ -7,17 +7,19 @@ export type Driver = {
 export const drivers = {
   Johannes: {
     pfp: "https://cdn.discordapp.com/avatars/163195440974528512/118dcf418c48736e3b669aa0d0257103.png?size=1024",
-    points: 50,
+    points: 100,
   },
   Tony: {
     pfp: "https://cdn.discordapp.com/avatars/484955136997851148/b5cdf1c9210be63b4cb97cfe12951b6d.png?size=1024",
-    points: 25,
+    points: 77,
   },
   Jacob: {
     pfp: "https://cdn.discordapp.com/avatars/386234508095258644/ea82f4105eefc27f972aa8bd68cec7a8.png?size=1024",
-    points: 57,
+    points: 93,
   },
 };
+
+export const TRACK_INDEX = 5;
 
 export const f1Tracks = [
   "Melbourne",
